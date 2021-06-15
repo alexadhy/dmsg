@@ -25,7 +25,10 @@ require (
 	github.com/spf13/cobra v0.0.5
 	github.com/stretchr/testify v1.4.0
 	golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb
+	golang.org/x/sys v0.0.0-20210112080510-489259a85091
 	golang.org/x/term v0.0.0-20210406210042-72f3dc4e9b72
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	nhooyr.io/websocket v1.8.2
 )
+
+replace github.com/creack/pty => github.com/jeffreystoke/pty v1.1.12-0.20210531091229-b834701fbcc6

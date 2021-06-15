@@ -17,7 +17,7 @@ var (
 
 // Pty runs a local pty.
 type Pty struct {
-	pty *os.File
+	pty pty.Pty
 	mx  sync.RWMutex
 }
 

@@ -1,7 +1,7 @@
 # github.com/VictoriaMetrics/metrics v1.12.3
 ## explicit
 github.com/VictoriaMetrics/metrics
-# github.com/creack/pty v1.1.10
+# github.com/creack/pty v1.1.10 => github.com/jeffreystoke/pty v1.1.12-0.20210531091229-b834701fbcc6
 ## explicit
 github.com/creack/pty
 # github.com/davecgh/go-spew v1.1.1
@@ -100,6 +100,7 @@ golang.org/x/crypto/ssh/terminal
 ## explicit
 golang.org/x/net/nettest
 # golang.org/x/sys v0.0.0-20210112080510-489259a85091
+## explicit
 golang.org/x/sys/cpu
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/plan9
@@ -119,3 +120,4 @@ nhooyr.io/websocket/internal/bpool
 nhooyr.io/websocket/internal/errd
 nhooyr.io/websocket/internal/wsjs
 nhooyr.io/websocket/internal/xsync
+# github.com/creack/pty => github.com/jeffreystoke/pty v1.1.12-0.20210531091229-b834701fbcc6
