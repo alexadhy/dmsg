@@ -23,7 +23,7 @@ func ptyResizeLoop(ctx context.Context, ptyC *PtyClient) error {
 			timer.Stop()
 			return nil
 		case <-timer.C:
-			winSize, err := getPtySize(os.Stdin)
+			winSize, err := getPtySize(os.Stdout)
 			if err != nil {
 				return fmt.Errorf("failed to obtain window size: %v", err)
 			}
