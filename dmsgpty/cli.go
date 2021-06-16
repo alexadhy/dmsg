@@ -166,6 +166,6 @@ func (cli *CLI) servePty(ctx context.Context, ptyC *PtyClient, cmd string, args 
 }
 
 // getPtySize obtains the size of the local terminal.
-func getPtySize(t *os.File) (*pty.Winsize, error) {
+func getPtySize(t pty.Tty) (*pty.Winsize, error) {
 	return pty.GetsizeFull(t)
 }
