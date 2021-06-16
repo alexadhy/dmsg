@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"net/rpc"
-	"os"
 	"sync"
 
 	"github.com/creack/pty"
@@ -70,16 +69,6 @@ func (sc *PtyClient) close() (closed bool) {
 		closed = true
 	})
 	return closed
-}
-
-// Start starts the pty.
-func (sc *PtyClient) Start(name string, arg ...string) error {
-	size, err := pty.GetsizeFull(os.Stdin)
-	if err != nil {
-		sc.log.WithError(err).Warn("failed to obtain terminal size")
-		size = nil
-	}
-	return sc.StartWithSize(name, arg, size)
 }
 
 // StartWithSize starts the pty with a specified size.
