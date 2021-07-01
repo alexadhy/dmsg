@@ -26,7 +26,6 @@ function func_print() {
   echo "load.sh [${FUNCNAME[1]}] $*"
 }
 
-
 function catch_ec() {
   if [[ $1 -ne 0 ]]; then
     echo "last command exited with non-zero exit code: $1"
@@ -117,6 +116,8 @@ function init_dmsg() {
     return 0
   fi
 
+  setup_vars
+
   # dmsg session depends on redis.
   init_redis
 
@@ -178,7 +179,7 @@ function init_dmsgpty() {
 
   sleep 1
   for i in $(seq 100 -1 1); do
-    pk=$(awk '1' ./integration/integration-configs/dmsgpty-host${i}.json | jq -r .pk)
+    pk=$(awk '1' ./integration/integration-configs/dmsgpty-host-${i}.json | jq -r .pk)
     tmux send-keys -t bash "dmsgpty${i}-cli whitelist-add ${pk} && print_dmsgpty_help" C-m
   done
 
