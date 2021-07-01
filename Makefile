@@ -77,31 +77,31 @@ build-docker:
 	./docker/scripts/docker-push.sh -t "develop" -b
 
 start-db: ## Init local database env.
-	source ./integration/env.sh && init_redis
+	source ./integration/load.sh && init_redis
 
 stop-db: ## Stop local database env.
-	source ./integration/env.sh && stop_redis
+	source ./integration/load.sh && stop_redis
 
 attach-db: ## Attach local database env.
-	source ./integration/env.sh && attach_redis
+	source ./integration/load.sh && attach_redis
 
 start-dmsg: build ## Init local dmsg env.
-	source ./integration/env.sh && init_dmsg
+	source ./integration/load.sh && init_dmsg
 
 stop-dmsg: ## Stop local dmsg env.
-	source ./integration/env.sh && stop_dmsg
+	source ./integration/load.sh && stop_dmsg
 
 attach-dmsg: ## Attach local dmsg tmux session.
-	source ./integration/env.sh && attach_dmsg
+	source ./integration/load.sh && attach_dmsg
 
 start-pty: build ## Init local dmsgpty env.
-	source ./integration/env.sh && init_dmsgpty
+	source ./integration/load.sh && init_dmsgpty
 
 stop-pty: ## Stop local dmsgpty env.
-	source ./integration/env.sh && stop_dmsgpty
+	source ./integration/load.sh && stop_dmsgpty
 
 attach-pty: ## Attach local dmsgpty tmux session.
-	source ./integration/env.sh && attach_dmsgpty
+	source ./integration/load.sh && attach_dmsgpty
 
 stop-all: stop-pty stop-dmsg stop-db ## Stop all local tmux sessions.
 
