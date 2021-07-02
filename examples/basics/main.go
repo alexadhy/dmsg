@@ -5,8 +5,6 @@ import (
 	"log"
 	"time"
 
-	"golang.org/x/net/nettest"
-
 	"github.com/skycoin/dmsg"
 	"github.com/skycoin/dmsg/cipher"
 	"github.com/skycoin/dmsg/disc"
@@ -21,24 +19,24 @@ func main() {
 	var initPort, respPort uint16 = 1563, 1563
 
 	// instantiate discovery
-	// dc := disc.NewHTTP("http://127.0.0.1:9090")
-	dc := disc.NewMock(0)
-	maxSessions := 10
+	dc := disc.NewHTTP("http://127.0.0.1:9090")
+	//dc := disc.NewMock(0)
+	//maxSessions := 10
 
 	// instantiate server
-	sPK, sSK := cipher.GenerateKeyPair()
-	srvConf := dmsg.ServerConfig{
-		MaxSessions:    maxSessions,
-		UpdateInterval: 0,
-	}
-	srv := dmsg.NewServer(sPK, sSK, dc, &srvConf, nil)
-
-	lis, err := nettest.NewLocalListener("tcp")
-	if err != nil {
-		panic(err)
-	}
-	go func() { _ = srv.Serve(lis, "") }() //nolint:errcheck
-	time.Sleep(time.Second)
+	//sPK, sSK := cipher.GenerateKeyPair()
+	//srvConf := dmsg.ServerConfig{
+	//	MaxSessions:    maxSessions,
+	//	UpdateInterval: 0,
+	//}
+	//srv := dmsg.NewServer(sPK, sSK, dc, &srvConf, nil)
+	//
+	//lis, err := nettest.NewLocalListener("tcp")
+	//if err != nil {
+	//	panic(err)
+	//}
+	//go func() { _ = srv.Serve(lis, "") }() //nolint:errcheck
+	//time.Sleep(time.Second)
 
 	// instantiate clients
 	respC := dmsg.NewClient(respPK, respSK, dc, nil)

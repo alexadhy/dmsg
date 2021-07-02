@@ -180,7 +180,7 @@ function init_dmsgpty() {
   sleep 1
   for i in $(seq 100 -1 1); do
     pk=$(awk '1' ./integration/integration-configs/dmsgpty-host-${i}.json | jq -r .pk)
-    tmux send-keys -t bash "dmsgpty${i}-cli whitelist-add ${pk} && print_dmsgpty_help" C-m
+    tmux send-keys -t bash "dmsgpty${i}-cli whitelist-add ${pk}" C-m
   done
 
   func_print "${dmsgpty_prog} session started successfully."

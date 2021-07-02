@@ -8,6 +8,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"runtime/pprof"
 	"time"
 
 	"github.com/go-chi/chi"
@@ -109,6 +110,11 @@ var rootCmd = &cobra.Command{
 				log.Errorf("Serve: %v", err)
 				cancel()
 			}
+		}()
+
+		go func() {
+			f, _ := os.Create("/tmp/profile.pb.gz")
+			_ = pprof.WriteHeapProfile(f)
 		}()
 
 		<-ctx.Done()

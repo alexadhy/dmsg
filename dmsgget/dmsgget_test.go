@@ -39,7 +39,7 @@ const (
 func TestDownload(t *testing.T) {
 	const (
 		fileSize  = 512
-		dlClients = 10 // number of clients to download from HTTP server.
+		dlClients = 100 // number of clients to download from HTTP server.
 	)
 
 	// Arrange: Prepare file to be downloaded.
