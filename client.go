@@ -264,6 +264,8 @@ func (ce *Client) Dial(ctx context.Context, addr Addr) (net.Conn, error) {
 
 // DialStream dials to a remote client entity with the given address.
 func (ce *Client) DialStream(ctx context.Context, addr Addr) (*Stream, error) {
+	ce.sesMx.Lock()
+	defer ce.sesMx.Unlock()
 	entry, err := getClientEntry(ctx, ce.dc, addr.PK)
 	if err != nil {
 		return nil, err
